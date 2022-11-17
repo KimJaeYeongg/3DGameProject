@@ -26,6 +26,8 @@ namespace Supercyan.AnimalPeopleSample
 
         [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
+        public FollowCam followCam;
+
         private float m_currentV = 0;
         private float m_currentH = 0;
 
@@ -65,6 +67,43 @@ namespace Supercyan.AnimalPeopleSample
                     m_isGrounded = true;
                 }
             }
+
+            
+        }
+
+        private void OnTriggerEnter(Collider coll)
+        {
+            // 추가
+            // 각 모서리 상자 충돌시 카메라 변경
+            if (coll.tag == "Turn++")
+            {
+                if (followCam.turnBox != 0)
+                    followCam.turnBox = 0;
+                else
+                    followCam.turnBox = 1;
+            }
+            if (coll.tag == "Turn-+")
+            {
+                if (followCam.turnBox != 1)
+                    followCam.turnBox = 1;
+                else
+                    followCam.turnBox = 2;
+            }
+            if (coll.tag == "Turn--")
+            {
+                if (followCam.turnBox != 2)
+                    followCam.turnBox = 2;
+                else
+                    followCam.turnBox = 3;
+            }
+            if (coll.tag == "Turn+-")
+            {
+                if (followCam.turnBox != 3)
+                    followCam.turnBox = 3;
+                else
+                    followCam.turnBox = 0;
+            }
+
         }
 
         private void OnCollisionStay(Collision collision)
