@@ -728,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3115044124669147887, guid: 5b4355d6212d0c8439664d1ea3a0ce98, type: 3}
       propertyPath: m_Name
-      value: animal_people_wolf_1_SimpleMovement
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8249930827179827100, guid: 5b4355d6212d0c8439664d1ea3a0ce98, type: 3}
       propertyPath: followCam
