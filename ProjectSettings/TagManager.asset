@@ -8,6 +8,8 @@ TagManager:
   - Turn-+
   - Turn--
   - Turn+-
+  - EquipPoint
+  - ShootPoint
   layers:
   - Default
   - TransparentFX

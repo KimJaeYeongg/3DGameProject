@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HandCameraCtrl : MonoBehaviour
 {
+    private GameObject player;
+
     public Camera mainCamera;
     public Camera photoCamera;
 
@@ -20,6 +22,7 @@ public class HandCameraCtrl : MonoBehaviour
     {
         grabPoint = GameObject.FindGameObjectWithTag("EquipPoint");
         shootPoint = GameObject.FindGameObjectWithTag("ShootPoint");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Start is called before the first frame update
@@ -45,7 +48,8 @@ public class HandCameraCtrl : MonoBehaviour
             {
                 this.transform.SetParent(shootPoint.transform);
                 this.transform.localPosition = new Vector3(0, (float)-0.125, 0);
-                this.transform.rotation = new Quaternion(0, 180, 0, 0);
+                this.transform.rotation = new Quaternion(0, 0, 0, 0);
+                this.transform.Rotate(0, 180, 0);
                 curCamCoolTime = cameraCoolTime;
                 cameraMode = true;
                 PhotoCameraView();
