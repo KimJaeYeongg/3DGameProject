@@ -4,15 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< Updated upstream
   - Turn++
   - Turn-+
   - Turn--
   - Turn+-
-=======
-  - ShootPoint
-  - EquipPoint
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
