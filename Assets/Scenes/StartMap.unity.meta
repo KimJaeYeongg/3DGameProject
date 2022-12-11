@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/StartMap.unity.meta
 guid: 81d68566dfc205e42a995bd0d6b30dfc
+========
+guid: 914e789d6cc7dc34c9c869aed8281840
+>>>>>>>> startmap2:Assets/SimpleNaturePack/SimpleNaturePack_HDRP_2018.4_v1.22.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
