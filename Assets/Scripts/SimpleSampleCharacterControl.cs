@@ -17,6 +17,8 @@ namespace Supercyan.AnimalPeopleSample
             Direct
         }
 
+        public Camera mainCamera;
+
         [SerializeField] private float m_moveSpeed = 2;
         [SerializeField] private float m_turnSpeed = 200;
         [SerializeField] private float m_jumpForce = 4;
@@ -27,6 +29,7 @@ namespace Supercyan.AnimalPeopleSample
         [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
         public FollowCam followCam;
+        public HandCameraCtrl handCam;
 
         private float m_currentV = 0;
         private float m_currentH = 0;
@@ -206,10 +209,15 @@ namespace Supercyan.AnimalPeopleSample
 
         private void DirectUpdate()
         {
-            float v = Input.GetAxis("Vertical");
-            float h = Input.GetAxis("Horizontal");
+            float v = 0, h = 0;
 
-            Transform camera = Camera.main.transform;
+            if (!handCam.getCamMode())
+            {
+                v = Input.GetAxis("Vertical");
+                h = Input.GetAxis("Horizontal");
+            }
+
+            Transform camera = mainCamera.transform;
 
             if (Input.GetKey(KeyCode.LeftShift))
             {

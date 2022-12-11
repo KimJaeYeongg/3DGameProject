@@ -8,6 +8,14 @@ TagManager:
   - Turn-+
   - Turn--
   - Turn+-
+  - EquipPoint
+  - ShootPoint
+  - Item
+  - UI Canvas
+  - Rock
+  - Mushroom
+  - WaterDrop
+  - Cloud
   layers:
   - Default
   - TransparentFX
@@ -15,7 +23,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Item
   - 
   - 
   - 
