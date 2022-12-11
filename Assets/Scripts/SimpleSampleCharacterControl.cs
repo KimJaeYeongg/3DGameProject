@@ -109,6 +109,18 @@ namespace Supercyan.AnimalPeopleSample
 
         }
 
+        private void OnTriggerStay(Collider other)
+        {
+            if(other.tag == "Turn0")
+                followCam.turnBox = 0;
+            if (other.tag == "Turn1")
+                followCam.turnBox = 1;
+            if (other.tag == "Turn2")
+                followCam.turnBox = 2;
+            if (other.tag == "Turn3")
+                followCam.turnBox = 3;
+        }
+
         private void OnCollisionStay(Collision collision)
         {
             ContactPoint[] contactPoints = collision.contacts;

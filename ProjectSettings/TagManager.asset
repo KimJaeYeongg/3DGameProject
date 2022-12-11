@@ -18,6 +18,10 @@ TagManager:
   - Cloud
   - Ground
   - Bee
+  - Turn0
+  - Turn1
+  - Turn2
+  - Turn3
   layers:
   - Default
   - TransparentFX
