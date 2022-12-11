@@ -4648,6 +4648,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7541037375568642485, guid: 61982c2c99063e44e9e4646d763c0439, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8333869302400229472, guid: 61982c2c99063e44e9e4646d763c0439, type: 3}
       propertyPath: m_Name
       value: PT_Caesars_Mushroom_01
@@ -7435,6 +7439,7 @@ MonoBehaviour:
   camAngle: 270
   camAngleSpeed: 5
   turnBox: 4
+  startMap: 0
 --- !u!1 &1924607460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 938e7ed0554675347863df374d4bb65a, type: 3}

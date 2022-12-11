@@ -15,6 +15,8 @@ public class FollowCam : MonoBehaviour
 
     public int turnBox = 0;
 
+    public int startMap = 0;
+
     private Transform tr;
     private float x_distance;
     private float z_distance;
@@ -30,15 +32,22 @@ public class FollowCam : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-      
-        // 카메라 x y z 좌표값
-        tr.position = Vector3.Lerp(tr.position, targetTr.position + (Vector3.right * x_distance)
-            + (Vector3.up * height) + (Vector3.forward * z_distance), dampTrace);
+      if (startMap == 0)
+        {
+            // 카메라 x y z 좌표값
+            tr.position = Vector3.Lerp(tr.position, targetTr.position + (Vector3.right * x_distance)
+                + (Vector3.up * height) + (Vector3.forward * z_distance), dampTrace);
+        }
+
+        
     }
 
     void FixedUpdate()
     {
-        CamTurn();
+        if (startMap == 0)
+        {
+            CamTurn();
+        }
     }
 
     void CamTurn()
