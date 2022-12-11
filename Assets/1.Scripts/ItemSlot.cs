@@ -8,7 +8,16 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Item myItem;
     Vector3 originPos;
 
+    Transform startParent;
+
+    public GameObject inventoryObject;
+
     // Start is called before the first frame update
+    private void Start()
+    {
+        inventoryObject = GameObject.FindGameObjectWithTag("Inventory");
+    }
+
     public void SetMyItem(Item item, int pos)
     {
         myItem = item;
@@ -36,7 +45,10 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        startParent = transform.parent;
+        transform.SetParent(GameObject.FindGameObjectWithTag("UI Canvas").transform);
         originPos = transform.position;
+        inventoryObject.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,5 +60,6 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         myItem.CreateObject();
         transform.position = originPos;
+        transform.SetParent(startParent);
     }
 }
