@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class Mushroom : Item
 {
-    Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
     protected override void CreateInstance(Vector3 hitPos)
     {
-        rb.constraints = ~RigidbodyConstraints.FreezePositionY;
         GameObject item = Instantiate(ItemObject);
         item.transform.position = hitPos;
         item.SetActive(true);
-        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,7 +16,7 @@ public class Mushroom : Item
         if(collision.gameObject.tag == "Ground")
         {
             Debug.Log(collision.gameObject.transform.name);
-            
+            Rigidbody rb = GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.position -= new Vector3(0, 0.1f, 0);
         }
