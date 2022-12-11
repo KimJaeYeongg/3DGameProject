@@ -9,12 +9,14 @@ public class PushingPlatform : MonoBehaviour
     public MoveSwitch moveSwitch;
     Transform desPos;
 
+    private bool abc;
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = startPos.position;
         desPos = endPos;
+        abc = true;
     }
 
     // Update is called once per frame
@@ -23,6 +25,11 @@ public class PushingPlatform : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, desPos.position, Time.deltaTime * speed);
         if(moveSwitch.pushing)
         {
+            if (abc)
+            {
+                desPos = endPos;
+                abc = false;
+            }
             if (Vector3.Distance(transform.position, desPos.position) <= 0.05f)
             {
                 if (desPos == endPos)
@@ -37,6 +44,7 @@ public class PushingPlatform : MonoBehaviour
         }
         else
         {
+            abc = true;
             desPos = startPos;
         }
     }

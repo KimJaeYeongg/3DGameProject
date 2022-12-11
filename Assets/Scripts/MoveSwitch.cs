@@ -21,12 +21,10 @@ public class MoveSwitch : MonoBehaviour
         if(pushing)
         {
             transform.position = Vector3.MoveTowards(transform.position, pushSpot.position, Time.deltaTime * speed);
-            Debug.Log("pushing");
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, currentSpot.position, Time.deltaTime * speed);
-            Debug.Log(currentSpot.position);
         }
     }
 
