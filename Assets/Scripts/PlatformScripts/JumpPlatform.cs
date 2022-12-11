@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpPlatform : MonoBehaviour
 {
-    [Range(100, 1000)]
+    [Range(0, 1000)]
     public float bouncehight;
 
     private void OnCollisionEnter(Collision collision)
