@@ -68,7 +68,7 @@ namespace Supercyan.AnimalPeopleSample
                 }
             }
 
-            
+
         }
 
         private void OnTriggerEnter(Collider coll)
