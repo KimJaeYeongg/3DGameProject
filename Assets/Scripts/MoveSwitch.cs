@@ -30,7 +30,7 @@ public class MoveSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Rock")
         {
             pushing = true;
             other.transform.SetParent(transform);

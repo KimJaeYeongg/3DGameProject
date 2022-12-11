@@ -29,27 +29,20 @@ public class Inventory : MonoBehaviour
     public SlotObject inventorySlotObject;
     public Slot inventorySlot;
 
-    int space;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        space = 5;
-    }
+    public int space = 5;
 
     public bool AddItem(Item item)
     {
         if (items.Count < space)
         {
-            for(int i = 0; i < items.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].GetItemName() == item.GetItemName())
                     return false;
-                    
+
             }
 
             items.Add(item);
-            Debug.Log(items.Count);
             switch (items.Count)
             {
                 case 1:

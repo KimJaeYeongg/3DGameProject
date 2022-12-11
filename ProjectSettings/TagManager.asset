@@ -16,6 +16,7 @@ TagManager:
   - Mushroom
   - WaterDrop
   - Cloud
+  - Ground
   layers:
   - Default
   - TransparentFX

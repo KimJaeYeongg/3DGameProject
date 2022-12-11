@@ -170,7 +170,8 @@ public class HandCameraCtrl : MonoBehaviour
 
             if (inventory.AddItem(item))
             {
-                itemObject.SetActive(false);
+                if(item.GetItemName() != "Cloud" && item.GetItemName() != "Mushroom")
+                    itemObject.SetActive(false);
                 Debug.Log("Item Successfully Added!");
             }
         }

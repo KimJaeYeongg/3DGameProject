@@ -9,8 +9,12 @@ public class JumpPlatform : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject bouncer = collision.gameObject;
-        Rigidbody rb = bouncer.GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.up * bouncehight);
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Jump");
+            GameObject bouncer = collision.gameObject;
+            Rigidbody rb = bouncer.GetComponent<Rigidbody>();
+            rb.AddForce(Vector3.up * bouncehight);
+        }
     }
 }

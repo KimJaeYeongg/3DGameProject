@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2720285058541387202}
   - component: {fileID: 2720285058541387205}
   - component: {fileID: 1522452375344578713}
+  - component: {fileID: 3167547140473593700}
   m_Layer: 6
   m_Name: Mushroom
   m_TagString: Item
@@ -100,7 +101,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!64 &2720285058541387205
 MeshCollider:
@@ -130,3 +131,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Mushroom
   ItemObject: {fileID: 2720285058541387204}
+--- !u!114 &3167547140473593700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720285058541387204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d271172c4a4e18c4fb1c8aeebef75d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncehight: 10

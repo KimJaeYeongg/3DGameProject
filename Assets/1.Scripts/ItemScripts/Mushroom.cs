@@ -10,4 +10,15 @@ public class Mushroom : Item
         item.transform.position = hitPos;
         item.SetActive(true);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            Debug.Log(collision.gameObject.transform.name);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            transform.position -= new Vector3(0, 0.1f, 0);
+        }
+    }
 }
