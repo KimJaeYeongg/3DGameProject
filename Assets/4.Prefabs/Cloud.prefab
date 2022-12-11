@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9210415990253114626}
   - component: {fileID: 4193084569677233258}
   - component: {fileID: 3168107095405037136}
+  - component: {fileID: 3757257189077960167}
   m_Layer: 6
   m_Name: Cloud
   m_TagString: Item
@@ -113,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cloud
   ItemObject: {fileID: 6153963720932167422}
+--- !u!114 &3757257189077960167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153963720932167422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e6f910a34fe624395cc1ab0aee1516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disappearTime: 2
+  appearTime: 2

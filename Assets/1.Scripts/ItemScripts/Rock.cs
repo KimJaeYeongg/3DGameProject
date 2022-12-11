@@ -10,4 +10,13 @@ public class Rock : Item
         item.transform.position = hitPos;
         item.SetActive(true);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Bee")
+        {
+            BeeMove beeDie = collision.gameObject.GetComponent<BeeMove>();
+            beeDie.MonsterDie();
+        }
+    }
 }

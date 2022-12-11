@@ -22,11 +22,11 @@ public class BeeMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            MonsterDie(); 
+            
         }
     }
 
-    void MonsterDie()
+    public void MonsterDie()
     {
         StopAllCoroutines();
 

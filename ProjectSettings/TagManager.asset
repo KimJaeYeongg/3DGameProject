@@ -17,6 +17,7 @@ TagManager:
   - WaterDrop
   - Cloud
   - Ground
+  - Bee
   layers:
   - Default
   - TransparentFX
