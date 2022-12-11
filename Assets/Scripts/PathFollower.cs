@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathFollower : MonoBehaviour
 {
@@ -48,7 +49,8 @@ public class PathFollower : MonoBehaviour
                 index %= pathParent.childCount;
                 targetPoint = pathParent.GetChild(index);
                 if (index == 0)
-                    Debug.Log("다음 스테이지");
+                    SceneManager.LoadScene("GameMap");
+
             }
             m_animator.SetFloat("MoveSpeed", 1.1f);
             //this.transform.LookAt(target);

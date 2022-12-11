@@ -61,5 +61,6 @@ public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         myItem.CreateObject();
         transform.position = originPos;
         transform.SetParent(startParent);
+
     }
 }

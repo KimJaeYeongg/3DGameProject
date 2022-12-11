@@ -31,6 +31,10 @@ namespace Supercyan.AnimalPeopleSample
         public FollowCam followCam;
         public HandCameraCtrl handCam;
 
+        public AudioClip audiojump;
+
+        private AudioSource audioSource;
+
         private float m_currentV = 0;
         private float m_currentH = 0;
 
@@ -54,6 +58,7 @@ namespace Supercyan.AnimalPeopleSample
         {
             if (!m_animator) { gameObject.GetComponent<Animator>(); }
             if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -267,6 +272,8 @@ namespace Supercyan.AnimalPeopleSample
             {
                 m_jumpTimeStamp = Time.time;
                 m_rigidBody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
+                audioSource.clip = audiojump;
+                audioSource.Play();
             }
 
             if (!m_wasGrounded && m_isGrounded)
