@@ -25,6 +25,7 @@ TagManager:
   - Inventory
   - Water
   - Audio Manager
+  - BGM
   layers:
   - Default
   - TransparentFX

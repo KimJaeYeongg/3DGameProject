@@ -9731,7 +9731,7 @@ GameObject:
   - component: {fileID: 775857345}
   m_Layer: 0
   m_Name: BackgroundMusic
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9748,7 +9748,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d5f70c9e320c0648b5be7b6e97c3fdc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.04
+  m_Volume: 0.206
   m_Pitch: 1
   Loop: 1
   Mute: 0
