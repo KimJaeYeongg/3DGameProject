@@ -9,8 +9,18 @@ public abstract class Item : MonoBehaviour
 
     public GameObject ItemObject;
 
+    private AudioMgr audioManager;
+    private AudioSource audioSource = null;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioMgr>();
+        audioSource = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioSource>();
+    }
+
     public void CreateObject()
     {
+        audioSource.PlayOneShot(audioManager.sfx.popSound, 0.9f);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 

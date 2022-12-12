@@ -24,6 +24,7 @@ TagManager:
   - Turn3
   - Inventory
   - Water
+  - Audio Manager
   layers:
   - Default
   - TransparentFX

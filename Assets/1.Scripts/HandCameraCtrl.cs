@@ -51,11 +51,16 @@ public class HandCameraCtrl : MonoBehaviour
     public Text itemText;
     public Text clickToTakePictureText;
 
+    private AudioMgr audioManager;
+    private AudioSource audioSource = null;
+
     private void Awake()
     {
         grabPoint = GameObject.FindGameObjectWithTag("EquipPoint");
         shootPoint = GameObject.FindGameObjectWithTag("ShootPoint");
         player = GameObject.FindGameObjectWithTag("Player");
+        audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioMgr>();
+        audioSource = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -167,6 +172,7 @@ public class HandCameraCtrl : MonoBehaviour
 
     public void TakeShot()
     {
+        audioSource.PlayOneShot(audioManager.sfx.shutterSound, 0.9f);
         Debug.DrawRay(this.transform.position, -transform.forward * 10, Color.red, 1f);
 
         RaycastHit hit;
