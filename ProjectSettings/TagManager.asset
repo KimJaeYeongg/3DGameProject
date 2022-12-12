@@ -23,6 +23,7 @@ TagManager:
   - Turn2
   - Turn3
   - Inventory
+  - Water
   layers:
   - Default
   - TransparentFX
