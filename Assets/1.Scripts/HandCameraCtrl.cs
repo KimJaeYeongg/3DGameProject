@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,6 +47,10 @@ public class HandCameraCtrl : MonoBehaviour
     [SerializeField]
     LayerMask layerMask;
 
+    private bool textActivate;
+    public Text itemText;
+    public Text clickToTakePictureText;
+
     private void Awake()
     {
         grabPoint = GameObject.FindGameObjectWithTag("EquipPoint");
@@ -58,6 +64,7 @@ public class HandCameraCtrl : MonoBehaviour
         cameraMode = false;
         cameraCoolTime = 3;
         curCamCoolTime = cameraCoolTime;
+        textActivate = false;
         MainCameraView();
     }
 
@@ -67,7 +74,7 @@ public class HandCameraCtrl : MonoBehaviour
         CarmeraMode();
         RotateCamera();
         TryTakePicture();
-        PlayFadeIn();
+        SetTextActivation();
     }
 
     void CarmeraMode()
@@ -145,6 +152,7 @@ public class HandCameraCtrl : MonoBehaviour
         
         if(cameraMode)
         {
+            ScanItem();
             if (Input.GetMouseButtonDown(0) && curCamCoolTime <= 0)
             {
                 TakeShot();
@@ -174,6 +182,34 @@ public class HandCameraCtrl : MonoBehaviour
                     itemObject.SetActive(false);
                 Debug.Log("Item Successfully Added!");
             }
+        }
+    }
+
+    public void ScanItem()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(this.transform.position, -transform.forward, out hit, 100f, layerMask))
+        {
+            textActivate = true;
+            Item item = hit.collider.gameObject.GetComponent<Item>();
+            itemText.text = "<color=#ff0000>" + item.GetItemName() + "</color>";
+        }
+        else
+            textActivate = false;
+    }
+
+    public void SetTextActivation()
+    {
+        if(cameraMode && textActivate)
+        {
+            itemText.enabled = true;
+            clickToTakePictureText.enabled = true;
+        }
+        else
+        {
+            itemText.enabled = false;
+            clickToTakePictureText.enabled = false;
         }
     }
 
