@@ -157,13 +157,14 @@ public class HandCameraCtrl : MonoBehaviour
         
         if(cameraMode)
         {
-            ScanItem();
+            
             if (Input.GetMouseButtonDown(0) && curCamCoolTime <= 0)
             {
                 TakeShot();
                 curCamCoolTime = cameraCoolTime;
                 StartCoroutine(this.PlayFadeIn());
             }
+            ScanItem();
         }
 
         if (curCamCoolTime > 0)
@@ -184,7 +185,7 @@ public class HandCameraCtrl : MonoBehaviour
 
             if(itemObject.transform.name == "endScene")
             {
-                Invoke("LoadScene", 0.1f);
+                LoadScene();
                 return;
             }
 
@@ -205,9 +206,16 @@ public class HandCameraCtrl : MonoBehaviour
 
         if (Physics.Raycast(this.transform.position, -transform.forward, out hit, 100f, layerMask))
         {
-            textActivate = true;
-            Item item = hit.collider.gameObject.GetComponent<Item>();
-            itemText.text = "<color=#ff0000>" + item.GetItemName() + "</color>";
+            GameObject itemObject = hit.collider.gameObject;
+
+            if (itemObject.transform.name != "endScene")
+            {
+                textActivate = true;
+                Item item = hit.collider.gameObject.GetComponent<Item>();
+
+                itemText.text = "<color=#ff0000>" + item.GetItemName() + "</color>";
+            }
+
         }
         else
             textActivate = false;
