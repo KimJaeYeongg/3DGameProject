@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HandCameraCtrl : MonoBehaviour
 {
@@ -181,12 +182,20 @@ public class HandCameraCtrl : MonoBehaviour
             GameObject itemObject = hit.collider.gameObject;
             Item item = itemObject.GetComponent<Item>();
 
+            if(itemObject.transform.name == "endScene")
+            {
+                Invoke("LoadScene", 0.1f);
+                return;
+            }
+
             if (inventory.AddItem(item))
             {
                 if(item.GetItemName() != "Cloud" && item.GetItemName() != "Mushroom")
                     itemObject.SetActive(false);
                 Debug.Log("Item Successfully Added!");
+
             }
+
         }
     }
 
@@ -235,6 +244,11 @@ public class HandCameraCtrl : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene("Ending");
     }
 
     public bool getCamMode() { return cameraMode; }
